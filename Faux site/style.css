@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("fond.jpg");    
+    background-size: cover;
+}
+
+.login-box {
+    background: white;
+    padding: 44px;
+    width: 440px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.main-logo {
+    width: 108px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1b1b1b;
+}
+
+input[type="email"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #666;
+    padding: 8px 0;
+    font-size: 15px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+input[type="email"]:focus {
+    border-bottom: 2px solid #0067b8;
+}
+
+p {
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+a {
+    color: #0067b8;
+    text-decoration: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.signin-options {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.signin-options img {
+    width: 24px;
+    margin-right: 8px;
+}
+
+.signin-options span {
+    font-size: 13px;
+}
+
+button {
+    background: #0067b8;
+    color: white;
+    border: none;
+    padding: 8px 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
