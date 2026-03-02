@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("fond.jpg");    
+    background-image: url("fond.png");    
     background-size: cover;
 }
 
@@ -57,11 +57,48 @@ a {
     text-decoration: none;
 }
 
+/* Zone du bas (Boutons) */
 .button-group {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+    justify-content: flex-end; /* Aligne les éléments sur la droite */
+    margin-top: 30px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px; /* Espace entre les deux boutons */
+}
+
+/* Le bouton Suivant (Bleu) */
+.btn-primary {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 8px 32px;
+    font-size: 15px;
+    cursor: pointer;
+    min-width: 100px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #005da6;
+}
+
+/* Le bouton Retour (Gris) */
+.btn-secondary {
+    background-color: #cccccc;
+    color: #1b1b1b;
+    border: none;
+    padding: 8px 32px;
+    font-size: 15px;
+    cursor: pointer;
+    min-width: 100px;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #b3b3b3;
 }
 
 .signin-options {
@@ -86,4 +123,43 @@ button {
     padding: 8px 30px;
     font-size: 15px;
     cursor: pointer;
+}
+.user-display {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.back-arrow {
+    cursor: pointer;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #666;
+    padding: 8px 0;
+    font-size: 15px;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+input[type="password"]:focus {
+    border-bottom: 2px solid #0067b8;
+}
+
+/* Style pour le message d'erreur */
+.error-text {
+    color: #e81123; 
+    font-size: 15px;
+    margin-bottom: 8px;
+    display: none; /* Le texte est caché par défaut */
+}
+
+/* Style pour souligner le champ en rouge en cas d'erreur */
+input[type="email"].error-state {
+    border-bottom: 1px solid #e81123;
 }
